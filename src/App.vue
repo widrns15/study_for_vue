@@ -1,18 +1,35 @@
+<!-- Vue3 Composition API -->
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+const title = '너의 이름은';
+const year = 2016;
+const category = '판타지';
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <h1>{{ title }}</h1>
+  <p>개봉: {{ year }}</p>
+  <p>장르: {{ category }}</p>
 </template>
+
+<!-- Vue2 Options API -->
+<!-- <script lang="ts">
+export default {
+  name: 'App',
+  data() {
+    return {
+      title: '노량',
+      year: 2023,
+      category: '액션',
+    };
+  },
+};
+</script>
+
+<template>
+  <h1>{{ title }}</h1>
+  <p>개봉: {{ year }}</p>
+  <p>장르: {{ category }}</p>
+</template> -->
 
 <style scoped>
 .logo {
