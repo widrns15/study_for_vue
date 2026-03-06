@@ -1,18 +1,19 @@
 <!-- Vue3 Composition API -->
 <script setup lang="ts">
 import { ref } from 'vue';
-
-const msg = ref('Hello');
-const myStyle = { color: 'gray' };
-const title = 'Hello Vue';
+let count = ref(0);
+const increment = () => {
+  count.value++;
+};
+const decrement = () => {
+  count.value--;
+};
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-
-  <h2 v-bind:style="myStyle">{{ title }}</h2>
-  <h2 :style="myStyle">데이터 바인딩</h2>
+  <p>Count: {{ count }}</p>
+  <button @click="increment">Count++</button>
+  <button v-on:click="decrement" style="margin-left: 20px">Count--</button>
 </template>
 
 <style scoped>
