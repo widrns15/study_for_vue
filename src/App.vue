@@ -1,19 +1,34 @@
 <!-- Vue3 Composition API -->
 <script setup lang="ts">
 import { ref } from 'vue';
-let count = ref(0);
-const increment = () => {
-  count.value++;
-};
-const decrement = () => {
-  count.value--;
+
+const foods = ['apple', 'banana', 'mango'];
+const favoriteFoods = [
+  { id: 0, name: 'strawberry' },
+  { id: 1, name: 'melon' },
+];
+
+const isOpen = ref(true);
+const closeModal = () => {
+  isOpen.value = false;
 };
 </script>
 
 <template>
-  <p>Count: {{ count }}</p>
-  <button @click="increment">Count++</button>
-  <button v-on:click="decrement" style="margin-left: 20px">Count--</button>
+  <h1>반복문</h1>
+  <ul>
+    <li v-for="(food, i) in foods" :key="i">{{ i }}: {{ food }}</li>
+    <li v-for="favoriteFood in favoriteFoods" :key="favoriteFood.id">
+      {{ favoriteFood.id }}: {{ favoriteFood.name }}
+    </li>
+  </ul>
+
+  <h1>조건부 랜더링</h1>
+  <div class="modal" v-if="isOpen">
+    <h2>Notice</h2>
+    <p>50% off today</p>
+    <button @click="closeModal">close</button>
+  </div>
 </template>
 
 <style scoped>
