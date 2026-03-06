@@ -1,35 +1,19 @@
 <!-- Vue3 Composition API -->
 <script setup lang="ts">
-const title = '너의 이름은';
-const year = 2016;
-const category = '판타지';
+import { ref } from 'vue';
+
+const msg = ref('Hello');
+const myStyle = { color: 'gray' };
+const title = 'Hello Vue';
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
-  <p>개봉: {{ year }}</p>
-  <p>장르: {{ category }}</p>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+
+  <h2 v-bind:style="myStyle">{{ title }}</h2>
+  <h2 :style="myStyle">데이터 바인딩</h2>
 </template>
-
-<!-- Vue2 Options API -->
-<!-- <script lang="ts">
-export default {
-  name: 'App',
-  data() {
-    return {
-      title: '노량',
-      year: 2023,
-      category: '액션',
-    };
-  },
-};
-</script>
-
-<template>
-  <h1>{{ title }}</h1>
-  <p>개봉: {{ year }}</p>
-  <p>장르: {{ category }}</p>
-</template> -->
 
 <style scoped>
 .logo {
